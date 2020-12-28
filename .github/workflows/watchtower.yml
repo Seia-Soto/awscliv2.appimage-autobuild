@@ -10,7 +10,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Install dependencies
-        run: apt-get update && apt-get install git unzip curl jq libfuse-dev -y
+        run: sudo apt-get update && sudo apt-get install git unzip curl jq libfuse-dev -y
       - name: Get latest tag
         id: latest_remote_tag
         run: |
