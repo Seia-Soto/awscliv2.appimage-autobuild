@@ -9,8 +9,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-        with:
-          token: ${{ secrets.REPO_SCOPED_TOKEN }}
       - name: Install dependencies
         run: apt-get update && apt-get install git unzip curl jq libfuse-dev -y
       - name: Get latest tag
@@ -56,7 +54,7 @@ jobs:
         run: cat ./appimage-build/build > ./build.sh
       - name: Modify build file
         run: |
-          REM_VER=${{steps.latest_remote_tag.outputs.ver}}
+          REM_VER=${{ steps.latest_remote_tag.outputs.ver }}
 
           echo Updating version string
           sed -i "s/VERSION\=.*/VERSION\='$REM_VER'/im" ./build.sh
@@ -78,8 +76,8 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tag_name: ${{ github.ref }}
-          release_name: Release ${{ github.ref }}
+          tag_name: ${{ steps.latest_remote_tag.outputs.ver }}
+          release_name: Build ${{ steps.latest_remote_tag.outputs.ver }}
           body: |
             This build is automated via GitHub Actions.
             If you find any errors, please open an issue and let me know.
