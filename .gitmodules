@@ -1,3 +1,0 @@
-[submodule "appimage-build"]
-	path = appimage-build
-	url = https://github.com/simnalamburt/awscliv2.appimage

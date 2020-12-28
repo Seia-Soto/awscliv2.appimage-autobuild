@@ -48,8 +48,8 @@ jobs:
 
             not_req
           fi
-      - name: Update submodules
-        run: git submodule foreach git pull origin main
+      - name: Clone simnalamburt/awscliv2.appimage repository
+        run: git clone https://github.com/simnalamburt/awscliv2.appimage.git appimage-build
       - name: Copy build script
         run: cat ./appimage-build/build > ./build.sh
       - name: Modify build file
