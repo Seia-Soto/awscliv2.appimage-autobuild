@@ -1,5 +1,9 @@
 # Seia-Soto/awscliv2.appimage-autobuild
 
+> **Notice**
+> The workaround about the auto-build is working on the original repository to improve and future auto built binaries will be provided on the original repository.
+> Please check [simnalamburt/awscliv2.appimage](https://github.com/simnalamburt/awscliv2.appimage) for more information and future release.
+
 This repository builds [simnalamburt/awscliv2.appimage](https://github.com/simnalamburt/awscliv2.appimage) repository automatically via GitHub Actions.
 The GitHub action in this repository will try to find and build the latest aws CLI every hour.
 
